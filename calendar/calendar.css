@@ -1,0 +1,120 @@
+.tr{
+    /*border-bottom: 1px solid ;*/
+    /*border-top-width: 1px;*/
+    /*margin-left: 5px;*/
+    /*height: 70px;*/
+    /*width: 80%;*/
+    margin-top: 2px;
+}
+
+.uinn-a12{
+    padding:0.625em;
+}
+
+table{
+    width: 100%;
+    border-collapse:collapse;
+    border-spacing:0px;
+    background: white;
+    /*border: 1px solid green;*/
+    /*padding: 6px;*/
+    /*margin-top: -2px;*/
+}
+.tb{
+    padding-top: 5px;
+}
+
+.tableWeek{
+      border-bottom-width: 0;
+  }
+
+.tableDate{
+    border-top-width: 0;
+}
+
+.td1{
+    /*border-bottom: 1px solid green;*/
+    /*border-right: 1px solid green;*/
+    width: 60%;
+}
+.td2{
+    /*border-bottom: 1px solid green;*/
+    /*border-right: 1px solid green;*/
+}
+.color
+{
+    color: black;
+}
+
+.umar-h12:nth-of-type(2) {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 12.5em;
+    /*background: orange;*/
+    border-radius: .5em;
+}
+.umar-h12:nth-of-type(2) table{
+    height: 12em;
+}
+.umar-h12:nth-of-type(2) table tr:nth-of-type(1){
+  color: #ccc;
+}
+/*选中状态*/
+.rycle{
+      font-size: 1em;
+      height: 70px;
+      width: 70px;
+      background: #F36821;
+      border-radius: 50%;
+/*      border: 1px solid red;*/
+      /*color: #fff;*/
+      color: black;
+      outline: none;
+      border:0;
+  }
+.rycle2{
+    font-size: 1em;
+    width: 70px;
+    background: #fff;
+    border: 0px solid red;
+}
+tr{
+  /*background: green;*/
+}
+#dateTable tr:nth-of-type(1){
+  border-top:1px solid #E3E3E3;
+  border-bottom:1px solid #E3E3E3;
+  font-size:.8em;
+
+}
+td{
+  margin-right: 1em;
+}
+
+/*空心圈状态*/
+.rycles{
+      font-size: 1em;
+      height: 70px;
+      width: 70px;
+      background: #fff;
+      border:3px solid #F36821;
+      border-radius: 50%;
+      /*color: #fff;*/
+      outline: none;
+      /*border:0;*/
+}
+
+#todays{
+  width: 100%;
+  height: 3em;
+  background: pink;
+  text-align: center;
+  line-height: 3em;
+  color: #F36821;
+}
+
+
+
