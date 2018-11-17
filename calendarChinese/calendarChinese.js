@@ -235,6 +235,16 @@ var CalendarChinese = {
         return parseInt((Date.parse(MM2) - Date.parse(MM1)) / 86400000);
     },
     /**
+     * 获取本年度已经过了多少天（公历）
+     * @param dateGL Date;//传入时间的Date的对象
+     * return 本年度已经过了多少天
+     * **/
+    daysNumberofDate:function(dateGL) {
+        return parseInt((Date.parse(dateGL)
+            - Date.parse(dateGL.getFullYear() + "/1/1"))
+            / 86400000) + 1;
+    },
+    /**
      * 获取农历的日子
      * @param dateGL Date;//传入时间的Date的对象
      * return 农历的日子
@@ -367,16 +377,6 @@ var CalendarChinese = {
         } else {
             return ResultMonth * 100 - ResultDay;
         }
-    },
-    /**
-     * 获取本年度已经过了多少天（公历）
-     * @param dateGL Date;//传入时间的Date的对象
-     * return 本年度已经过了多少天
-     * **/
-    daysNumberofDate:function(dateGL) {
-        return parseInt((Date.parse(dateGL)
-            - Date.parse(dateGL.getFullYear() + "/1/1"))
-            / 86400000) + 1;
     },
     /**
      * 获取当天的公历年月日 星期几 和 农历的年月日

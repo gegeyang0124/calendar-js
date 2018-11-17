@@ -24,7 +24,7 @@ CalendarHtml.clickDate = function(timetamp){
 };
 </script>
 ```
-### 农历模块操作 可以进行农历计算 可以运行于各种浏览器 可查看源文件，有详细注释
+### 农历模块操作 可以进行农历计算 可计算本月/本年的天数 可查看源文件，有详细注释
 引入calendarChinese
 CalendarChinese.getChineseDate();//获取农历年月日及节假日 具体参数请查看文件中的注释，
 ```
