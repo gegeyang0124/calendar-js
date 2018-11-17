@@ -1,3 +1,3 @@
-农历解析js库，引入calendarChinese/calendarChinese.js文件；
-calendarChinese.getChineseDate();//获取农历年月日及节假日 具体参数请查看文件中的注释，
+农历解析js库，引入calendarChinese/引入calendarChinese.js文件；
+CalendarChinese.getChineseDate();//获取农历年月日及节假日 具体参数请查看文件中的注释，
 //还有其他的方法，皆可调用，并都有详细的注释

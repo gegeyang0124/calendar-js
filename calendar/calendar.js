@@ -1,4 +1,4 @@
-var calendarHtml = {
+var CalendarHtml = {
     timetampSelected:null,//选中时间的时间戳；
     timetampCurrent:null,//当前选择月的时间戳
     timetampCurrentConst:null,//当前选择月的时间戳
@@ -12,29 +12,29 @@ var calendarHtml = {
 
         var dateTtmp = new Date(timetamp);
 
-        var dateCur = new Date(calendarHtml.timetampCurrent);
+        var dateCur = new Date(CalendarHtml.timetampCurrent);
         var bool = dateTtmp.getMonth() == dateCur.getMonth()
         && dateTtmp.getFullYear() == dateCur.getFullYear()
             ? true
             : false;
 
-        if(calendarHtml.timetampSelected != null && bool)
+        if(CalendarHtml.timetampSelected != null && bool)
         {
-            var dateSel = new Date(calendarHtml.timetampSelected);
+            var dateSel = new Date(CalendarHtml.timetampSelected);
             if(dateTtmp.getMonth() == dateSel.getMonth()
                 && dateTtmp.getFullYear() == dateSel.getFullYear())
             {
-                document.getElementById(calendarHtml.timetampSelected).className = "rycle2";
+                document.getElementById(CalendarHtml.timetampSelected).className = "rycle2";
             }
 
         }
 
         if(bool)
         {
-            calendarHtml.timetampSelected = timetamp;
+            CalendarHtml.timetampSelected = timetamp;
             document.getElementById(timetamp).className = "rycle";
             // alert(timetamp);
-            calendarHtml.clickDate(timetamp);
+            CalendarHtml.clickDate(timetamp);
         }
     },
     /**
@@ -42,23 +42,23 @@ var calendarHtml = {
      * @param tgId string,//html标签的ID
      * **/
     drawCalendar : function(tgId) {
-        calendarHtml.tagId = tgId;
+        CalendarHtml.tagId = tgId;
         var date = new Date();
-        if(calendarHtml.timetampCurrent == null)
+        if(CalendarHtml.timetampCurrent == null)
         {
-            calendarHtml.timetampCurrent = date.getTime();
+            CalendarHtml.timetampCurrent = date.getTime();
             // timetampSelected = timetampCurrent;
         }
 
-        var yearCurrent = new Date(calendarHtml.timetampCurrent).getFullYear();
-        var monthCurrent = new Date(calendarHtml.timetampCurrent).getMonth();
-        var weekCurrent = new Date(calendarHtml.timetampCurrent).getDay();
-        var dayCurrent = new Date(calendarHtml.timetampCurrent).getDate();
+        var yearCurrent = new Date(CalendarHtml.timetampCurrent).getFullYear();
+        var monthCurrent = new Date(CalendarHtml.timetampCurrent).getMonth();
+        var weekCurrent = new Date(CalendarHtml.timetampCurrent).getDay();
+        var dayCurrent = new Date(CalendarHtml.timetampCurrent).getDate();
 
-        if(calendarHtml.timetampSelected == null)
+        if(CalendarHtml.timetampSelected == null)
         {
-            calendarHtml.timetampCurrent = (new Date(yearCurrent,monthCurrent,dayCurrent,0,0,0)).getTime();
-            calendarHtml.timetampSelected = calendarHtml.timetampCurrent;
+            CalendarHtml.timetampCurrent = (new Date(yearCurrent,monthCurrent,dayCurrent,0,0,0)).getTime();
+            CalendarHtml.timetampSelected = CalendarHtml.timetampCurrent;
             // alert(moment(timetampCurrent).format("YYYY-MM-DD HH:mm:ss"));
         }
 
@@ -77,7 +77,7 @@ var calendarHtml = {
 
         // var tableTileText = moment(timetampCurrent).format("YYYY年MM月DD日 星期");
         var tableTileText = yearCurrent + "年" + (monthCurrent + 1) + "月"
-            + dayCurrent + "日 星期" +  calendarHtml.weekChinese(weekCurrent);
+            + dayCurrent + "日 星期" +  CalendarHtml.weekChinese(weekCurrent);
         var tableTileHtml = tableTile1 + tableTileText + tableTile2;
 
 
@@ -94,8 +94,8 @@ var calendarHtml = {
         var tablebodyDateRow = "";
         var tbWeek = "";
         var monthTmp = monthCurrent;
-        var timetampTmpSub =  calendarHtml.timetampCurrent;
-        var timetampTmpAdd =  calendarHtml.timetampCurrent + 86400000;
+        var timetampTmpSub =  CalendarHtml.timetampCurrent;
+        var timetampTmpAdd =  CalendarHtml.timetampCurrent + 86400000;
         // alert(new Date(timetampTmpAdd).getDay());
         while (monthTmp == new Date(timetampTmpSub).getMonth()) {
             var dateTmp = new Date(timetampTmpSub);
@@ -112,7 +112,7 @@ var calendarHtml = {
              // tb = tb + "rycle2" + tb1;
              }*/
 
-            var tb = "<td align='center' class='tb' onclick='calendarHtml.clickDateEvent(" + timetampTmpSub + ")'><button id='" + timetampTmpSub + "' class='rycle2'>" + dateTmp.getDate() + "</button></td>";
+            var tb = "<td align='center' class='tb' onclick='CalendarHtml.clickDateEvent(" + timetampTmpSub + ")'><button id='" + timetampTmpSub + "' class='rycle2'>" + dateTmp.getDate() + "</button></td>";
 
             switch (dateTmp.getDay()) {
                 case 0:
@@ -225,7 +225,7 @@ var calendarHtml = {
         while (monthTmp == new Date(timetampTmpAdd).getMonth()) {
             var dateTmp = new Date(timetampTmpAdd);
             // var tb = "<td align='center'><button class='rycle2'>" + dateTmp.getDate() + "</button></td>";
-            var tb = "<td align='center' class='tb' onclick='calendarHtml.clickDateEvent(" + timetampTmpAdd + ")'><button  id='" + timetampTmpAdd + "' class='rycle2'>" + dateTmp.getDate() + "</button></td>";
+            var tb = "<td align='center' class='tb' onclick='CalendarHtml.clickDateEvent(" + timetampTmpAdd + ")'><button  id='" + timetampTmpAdd + "' class='rycle2'>" + dateTmp.getDate() + "</button></td>";
             switch (dateTmp.getDay()) {
                 case 0:
                 {
@@ -337,22 +337,22 @@ var calendarHtml = {
         var tableHtml = tableTileHtml + tablebody1 + tablebodyDateRow + tablebody12;
         // var tableHtml = tablebody1 + tablebodyDateRow + tablebody12;
 
-        document.getElementById(calendarHtml.tagId).innerHTML = tableHtml;
+        document.getElementById(CalendarHtml.tagId).innerHTML = tableHtml;
 
 
         $("#dateTable").swipeLeft (function () {
-            calendarHtml.timetampCurrent = timetampTmpSub;
+            CalendarHtml.timetampCurrent = timetampTmpSub;
             // alert("Ds: " + tagId);
-            calendarHtml.drawCalendar(calendarHtml.tagId);
+            CalendarHtml.drawCalendar(CalendarHtml.tagId);
         });
 
         $("#dateTable").swipeRight (function () {
-            calendarHtml.timetampCurrent = timetampTmpAdd;
+            CalendarHtml.timetampCurrent = timetampTmpAdd;
             // alert("Ds1 : " + tagId);
-            calendarHtml.drawCalendar(calendarHtml.tagId);
+            CalendarHtml.drawCalendar(CalendarHtml.tagId);
         });
 
-        calendarHtml.clickDateEvent(calendarHtml.timetampSelected);
+        CalendarHtml.clickDateEvent(CalendarHtml.timetampSelected);
     },
     /**
      * 周几的数字转化成中文

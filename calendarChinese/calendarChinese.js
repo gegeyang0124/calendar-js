@@ -1,7 +1,7 @@
 /**
  * 农历模块操作 可以进行农历计算 可以运行于各种浏览器
  * **/
-var calendarChinese = {
+var CalendarChinese = {
     /**
      * 配置数据及对象
      * **/
@@ -26,13 +26,13 @@ var calendarChinese = {
     getChineseDate:function (time) {
 
         var date = time == undefined ? new Date() : new Date(time);
-        calendarChinese.config.time = date.getTime();
+        CalendarChinese.config.time = date.getTime();
 
         var dateJson = {
-            time:calendarChinese.config.time,//时间戳
-            year:calendarChinese.cnYearofDate(date),//农历年
-            month:calendarChinese.cnMonthofDate(date),//农历月
-            day:calendarChinese.cnDayofDate(date),//农历日
+            time:CalendarChinese.config.time,//时间戳
+            year:CalendarChinese.cnYearofDate(date),//农历年
+            month:CalendarChinese.cnMonthofDate(date),//农历月
+            day:CalendarChinese.cnDayofDate(date),//农历日
             week:date.getDay(),//周几
             festival:'',//法定放假节假日
             toStr:'',//农历年月日字符串
@@ -40,9 +40,9 @@ var calendarChinese = {
         };
         dateJson.toMDStr = dateJson.month + dateJson.day;
         dateJson.toStr = dateJson.year + " " + dateJson.month + dateJson.day;
-        calendarChinese.config.dateJson = dateJson;
+        CalendarChinese.config.dateJson = dateJson;
 
-        dateJson.festival = calendarChinese.getFestival(dateJson.toMDStr);
+        dateJson.festival = CalendarChinese.getFestival(dateJson.toMDStr);
 
         return dateJson;
     },
@@ -52,10 +52,10 @@ var calendarChinese = {
      * return 农历节日
      * **/
     getFestival:function (dateMDString) {
-        var cdate = new Date(calendarChinese.config.time + 86400000);
+        var cdate = new Date(CalendarChinese.config.time + 86400000);
         var mDStrG = (cdate.getMonth() + 1) + ":" + (cdate.getDate() - 1);
-        var mDStr = calendarChinese.cnMonthofDate(cdate)
-            + calendarChinese.cnDayofDate(cdate);
+        var mDStr = CalendarChinese.cnMonthofDate(cdate)
+            + CalendarChinese.cnDayofDate(cdate);
 
         if(mDStr == "正月初一")
         {
@@ -97,7 +97,7 @@ var calendarChinese = {
         }
         else
         {
-            return calendarChinese.getWeekChinese(calendarChinese.config.dateJson.week);
+            return CalendarChinese.getWeekChinese(CalendarChinese.config.dateJson.week);
         }
 
     },
@@ -195,16 +195,16 @@ var calendarChinese = {
      * return 农历年月日
      * **/
     cnDateofDateStr:function (dateGL) {
-        if (calendarChinese.cnMonthofDate(dateGL) == "零月")
+        if (CalendarChinese.cnMonthofDate(dateGL) == "零月")
         {
             return "　请调整您的计算机日期!";
         }
         else
         {
             // alert(CnDayofDate(dateGL))
-            return "农历：" + calendarChinese.cnYearofDate(dateGL) + " "
-                + calendarChinese.cnMonthofDate(dateGL)
-                + calendarChinese.cnDayofDate(dateGL);
+            return "农历：" + CalendarChinese.cnYearofDate(dateGL) + " "
+                + CalendarChinese.cnMonthofDate(dateGL)
+                + CalendarChinese.cnDayofDate(dateGL);
         }
     },
     /**
@@ -248,7 +248,7 @@ var calendarChinese = {
             "廿一", "廿二", "廿三", "廿四", "廿五",
             "廿六", "廿七", "廿八", "廿九", "三十");
         var Day;
-        Day = (Math.abs(calendarChinese.cnDateofDate(dateGL))) % 100;
+        Day = (Math.abs(CalendarChinese.cnDateofDate(dateGL))) % 100;
         return CnDayStr[Day];
     },
     /**
@@ -259,7 +259,7 @@ var calendarChinese = {
     cnMonthofDate:function(dateGL) {
         var CnMonthStr = new Array("零", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "腊");
         var Month;
-        Month = parseInt(calendarChinese.cnDateofDate(dateGL) / 100);
+        Month = parseInt(CalendarChinese.cnDateofDate(dateGL) / 100);
         if (Month < 0) {
             return "闰" + CnMonthStr[-Month] + "月";
         } else {
@@ -274,11 +274,11 @@ var calendarChinese = {
     cnYearofDate:function(dateGL) {
         var YYYY = dateGL.getFullYear();
         var MM = dateGL.getMonth() + 1;
-        var CnMM = parseInt(Math.abs(calendarChinese.cnDateofDate(dateGL)) / 100);
+        var CnMM = parseInt(Math.abs(CalendarChinese.cnDateofDate(dateGL)) / 100);
         if (YYYY < 100) YYYY += 1900;
         if (CnMM > MM) YYYY--;
         YYYY -= 1864;
-        return calendarChinese.cnEra(YYYY) + "年";
+        return CalendarChinese.cnEra(YYYY) + "年";
     },
     /**
      * 获取农历的月日
@@ -344,9 +344,9 @@ var calendarChinese = {
                 }
             }
         }
-        DaysCount = calendarChinese.daysNumberofDate(dateGL) - 1;
+        DaysCount = CalendarChinese.daysNumberofDate(dateGL) - 1;
         if (DaysCount <= (CnMonthDays[0] - CnBeginDay)) {
-            if ((yyyy > 1901) && (calendarChinese.cnDateofDate(new Date((yyyy - 1) + "/12/31")) < 0)) {
+            if ((yyyy > 1901) && (CalendarChinese.cnDateofDate(new Date((yyyy - 1) + "/12/31")) < 0)) {
                 ResultMonth = -CnMonth[0];
             } else {
                 ResultMonth = CnMonth[0];
@@ -388,7 +388,7 @@ var calendarChinese = {
         var DDDD = (today.getFullYear() < 100 ?
             today.getFullYear() + 1900 : today.getFullYear()) + "年" + (today.getMonth() + 1) + "月" + today.getDate() + "日";
         DDDD = DDDD + " " + d[today.getDay()];
-        DDDD = DDDD + " " + (calendarChinese.cnDateofDateStr(today));
+        DDDD = DDDD + " " + (CalendarChinese.cnDateofDateStr(today));
         //DDDD = DDDD+ " " + SolarTerm(today);
         return DDDD;
         document.write(DDDD);
