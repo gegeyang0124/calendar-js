@@ -220,11 +220,11 @@ var CalendarChinese = {
         return Tiangan[yyyy % 10] + Dizhi[yyyy % 12];
     },
     /**
-     * 获取本月的天数（公历）
-     * @param dateGL Date;//传入时间的Date的对象
-     * return 本月的天数
+     * 获取传入时间当月的天数（公历）
+     * @param dateGL Date;//传入时间的Date对象,不传则默认当前的时间的Date对象
+     * return 获取传入时间当月的天数（公历）
      * **/
-    daysNumberofMonth:function(dateGL) {
+    daysNumberofMonth:function(dateGL=new Date()) {
         var MM1 = dateGL.getFullYear();
         MM1 < 100 ? MM1 += 1900 : MM1;
         var MM2 = MM1;
@@ -235,11 +235,11 @@ var CalendarChinese = {
         return parseInt((Date.parse(MM2) - Date.parse(MM1)) / 86400000);
     },
     /**
-     * 获取本年度已经过了多少天（公历）
-     * @param dateGL Date;//传入时间的Date的对象
-     * return 本年度已经过了多少天
+     * 获取传入时间的年初到传入时间已经过了多少天（公历）
+     * @param dateGL Date;//传入时间的Date对象,不传则默认当前的时间的Date对象
+     * return 传入时间的年初到传入时间已经过了多少天
      * **/
-    daysNumberofDate:function(dateGL) {
+    daysNumberofDate:function(dateGL=new Date()) {
         return parseInt((Date.parse(dateGL)
             - Date.parse(dateGL.getFullYear() + "/1/1"))
             / 86400000) + 1;
