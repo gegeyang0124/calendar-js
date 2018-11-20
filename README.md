@@ -34,3 +34,4 @@ CalendarChinese.getChineseDate(new Date().getTime());
 </script>
 ```
 
+### [我的博客](http://blog.sina.com.cn/s/articlelist_6078695441_0_1.html)
