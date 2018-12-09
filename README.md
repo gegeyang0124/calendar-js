@@ -4,6 +4,11 @@
 ##### 注意：
 以下方法可查看源文件，里面有方法(函数)的参数和返回数据的详细注解。
 
+### 展示
+<p>
+    <img src ="https://github.com/gegeyang0124/calendar-js/blob/master/showImg/calendar.png" />
+</p>
+
 ### 绘制日历表格 日历月份切换需要左右滑动，左滑则是进入上一个月，右滑则是进入下一个月 可查看源文件，有详细注释
 使用时引入calendar.css和calendar.js
 （注意：在appcan内使用需要引入appcan.js；
