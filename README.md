@@ -6,7 +6,7 @@
 
 ### 展示
 <p>
-    <img src ="https://github.com/gegeyang0124/calendar-js/blob/master/showImg/calendar.png" />
+    <img src ="./showImg/calendar.png" />
 </p>
 
 ### 绘制日历表格 日历月份切换需要左右滑动，左滑则是进入上一个月，右滑则是进入下一个月 可查看源文件，有详细注释
