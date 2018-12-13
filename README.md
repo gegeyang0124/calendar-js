@@ -20,7 +20,7 @@ CalendarHtml.weekChinese(tag);//周几的数字转化成中文<br>
 例子：
 ```
 <link rel="stylesheet" href="./calendar/calendar.css">
-<script src="./calendar/calendar.js"></script>
+<script src="./.../calendar-js/calendar/calendar.js"></script>
 <div id="dv"></div>
 
 <script>
